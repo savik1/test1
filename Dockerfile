@@ -10,6 +10,6 @@ RUN cd /home/sampleTest
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
 RUN cd /home/sampleTest/boxfuse-sample-java-war-hello
 RUN mvn package
-RUN cd cd /home/sampleTest/boxfuse-sample-java-war-hello/target
+RUN cd /home/sampleTest/boxfuse-sample-java-war-hello/target
 RUN cp hello-1.0.war /var/lib/tomcat8/webapps/
 CMD ["catalina.sh", "run"]
