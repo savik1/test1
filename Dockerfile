@@ -7,6 +7,7 @@ RUN apt install git -y
 EXPOSE 8080
 RUN mkdir /home/sampleTest
 RUN cd /home/sampleTest
+RUN ls -a
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
 RUN ls -a
 RUN cd /home/sampleTest/boxfuse-sample-java-war-hello
