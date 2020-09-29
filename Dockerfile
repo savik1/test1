@@ -1,6 +1,7 @@
 FROM openjdk:15-jdk-buster
 
 ENV CATALINA_HOME /usr/local/tomcat
+ENV PROJECT_DIR /home/sampleTest
 ENV PATH $CATALINA_HOME/bin:$PATH
 RUN mkdir -p "$CATALINA_HOME"
 WORKDIR $CATALINA_HOME
@@ -129,10 +130,10 @@ RUN set -e \
 		exit 1; \
 	fi
 RUN apt-get install maven git -y
-RUN mkdir /home/sampleTest
-WORKDIR /home/sampleTest
+RUN mkdir $PROJECT_DIR
+WORKDIR $PROJECT_DIR
 RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-WORKDIR /home/sampleTest/boxfuse-sample-java-war-hello
+WORKDIR $PROJECT_DIR/boxfuse-sample-java-war-hello
 RUN mvn package
 RUN cp ./target/hello-1.0.war $CATALINA_HOME/webapps/
 EXPOSE 8080
